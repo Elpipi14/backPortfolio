@@ -5,7 +5,7 @@ import express from "express";
 import cors from "cors";
 
 //configObject es un objeto que contiene las variables de entorno
-import configObject from "../config/env";
+import configObject from "./config/env.js";
 const { page, port } = configObject;
 
 //Ruta contacto para manejar el envío de correos electrónicos
