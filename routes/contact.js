@@ -1,6 +1,6 @@
 import { Router } from "express";
 import axios from "axios";
-import configObject from '../config/env';
+import configObject from '../config/env.js'
 import { sendConfirmationEmail } from "../utils/nodemailer.js";
 
 const routerContact = Router();
