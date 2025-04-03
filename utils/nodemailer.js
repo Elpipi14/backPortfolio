@@ -1,5 +1,5 @@
 import nodemailer from 'nodemailer';
-import configObject from '../config/env';
+import configObject from '../config/env.js';
 
 const { email_user, email_pass } = configObject;
 
