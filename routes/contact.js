@@ -1,11 +1,11 @@
 import { Router } from "express";
-const routerContact = Router();
+import axios from "axios";
 import configObject from '../config/env';
+import { sendConfirmationEmail } from "../utils/nodemailer.js";
+
+const routerContact = Router();
 const { RECAPTCHA_SECRET_KEY } = configObject;
 
-
-import axios from "axios";
-import { sendConfirmationEmail } from "../utils/nodemailer.js";
 
 routerContact.post("/api/contact", async (req, res) => {
     const { firstName, lastName, email, message, token } = req.body;

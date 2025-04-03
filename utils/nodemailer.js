@@ -1,6 +1,4 @@
 import nodemailer from 'nodemailer';
-import hbs from 'nodemailer-express-handlebars';
-import path from 'path';
 import configObject from '../config/env';
 
 const { email_user, email_pass } = configObject;
