@@ -6,7 +6,7 @@ const configObject = {
   email_pass: process.env.EMAIL_PASS,
   RECAPTCHA_SECRET_KEY: process.env.RECAPTCHA_SECRET_KEY,
   page: process.env.PAGE,
-  port: process.env.PORT || 5000,
+  port: process.env.PORT,
 };
 
 export default configObject;
