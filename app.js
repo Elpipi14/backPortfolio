@@ -32,7 +32,7 @@ app.use("/", routerContact);
 // 🔐 Servidor HTTP
 // ==============================
 
-const PORT = process.env.PORT || 8000;
+const PORT = process.env.PORT;
 
 app.listen(PORT, () => {
   console.log(`Servidor corriendo en el puerto ${PORT}`);
