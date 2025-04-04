@@ -6,33 +6,36 @@ import cors from "cors";
 
 //configObject es un objeto que contiene las variables de entorno
 import configObject from "./config/env.js";
-const { page, port } = configObject;
+const { page, page2, port } = configObject;
 
 //Ruta contacto para manejar el envío de correos electrónicos
 import routerContact from "./routes/contact.js";
 
-// servicio de nodemailer
-import { sendConfirmationEmail } from "./utils/nodemailer.js";
 
 const app = express();
 
 // Middleware sirve para procesar las peticiones antes de llegar a las rutas
 app.use(express.json());
-app.use(
-  cors({
-    origin: page,
-    methods: ["GET", "POST"],
-    credentials: true,
-  })
-);
+
+// Middleware
+const corsOptions = {
+  origin: [`${page}`, `${page2}`, 'http://localhost:8080'], // Permite HTTP y HTTPS
+  credentials: true, // Si necesitas enviar cookies o autenticación
+};
+app.use(cors(corsOptions));
+
 
 app.use("/", routerContact);
+
+app.get("/", (req, res) => {
+  res.send("Servidor API funcionando correctamente ✅");
+});
 
 // ==============================
 // 🔐 Servidor HTTP
 // ==============================
 
-const PORT = process.env.PORT;
+const PORT = port;
 
 app.listen(PORT, () => {
   console.log(`Servidor corriendo en el puerto ${PORT}`);
