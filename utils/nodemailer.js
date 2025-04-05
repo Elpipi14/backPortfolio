@@ -5,8 +5,9 @@ const { email_user, email_pass } = configObject;
 
 // Configurar el transporte de Nodemailer
 const transporter = nodemailer.createTransport({
-  service: "smtp.piuzzidev.com",
+  service: "smtp.donweb.com",
   port: 465,
+  secure:true,
   auth: {
     user: email_user,
     pass: email_pass,
