@@ -5,15 +5,12 @@ const { email_user, email_pass } = configObject;
 
 // Configurar el transporte de Nodemailer
 const transporter = nodemailer.createTransport({
-  host: "c2670112.ferozo.com", 
+  host: "c2670112.ferozo.com",
   port: 465,
   secure: true, // true para puerto 465
   auth: {
-    user: email_user, 
-    pass: email_pass, 
-  },
-  tls: {
-    rejectUnauthorized: false, // evita errores por certificados autofirmados
+    user: email_user,
+    pass: email_pass,
   },
 });
 
