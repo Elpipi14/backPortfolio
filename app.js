@@ -6,7 +6,7 @@ import cors from "cors";
 
 //configObject es un objeto que contiene las variables de entorno
 import configObject from "./config/env.js";
-const { page, page2, port } = configObject;
+const { page, page2, page3, port } = configObject;
 
 //Ruta contacto para manejar el envío de correos electrónicos
 import routerContact from "./routes/contact.js";
@@ -18,12 +18,15 @@ const app = express();
 app.use(express.json());
 
 // Middleware
+const allowedOrigins = [page, page2, page3].filter(Boolean); // solo strings válidas
+
 const corsOptions = {
- origin: [`${page}`, `${page2}`], // Permite HTTP y HTTPS
-  credentials: true, // Si necesitas enviar cookies o autenticación
+  origin: allowedOrigins,
+  credentials: true,
 };
 
-console.log("🧪 Cors permitido para:", page, page2);
+console.log("🧪 Cors permitido para:", page, page2, page3);
+
 app.use(cors(corsOptions));
 
 

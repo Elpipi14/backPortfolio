@@ -7,6 +7,7 @@ const configObject = {
   RECAPTCHA_SECRET_KEY: process.env.RECAPTCHA_SECRET_KEY,
   page: process.env.PAGE || "http://localhost:8080",
   page2: process.env.PAGE2 || "https://localhost:8080",
+  page3: process.env.PAGE3 || "https://localhost:8080",
   port: process.env.PORT || 8080,
 };
 
