@@ -2,16 +2,22 @@ import { Router } from "express";
 import axios from "axios";
 import configObject from "../config/env.js";
 import { sendConfirmationEmail } from "../utils/nodemailer.js";
+import { validateContact } from "../middleware/validation.js"
 
 const routerContact = Router();
 // const { RECAPTCHA_SECRET_KEY } = configObject;
 
-routerContact.post("/api/contact", async (req, res) => {
+routerContact.post("/api/contact", validateContact, async (req, res) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ success: false, errors: errors.array() });
+  } 
+
   const { firstName, lastName, email, message } = req.body;
   // , token || !token
-  if (!firstName || !lastName || !email || !message) {
-    return res.status(400).json({ success: false, error: "Datos incompletos" });
-  }
+  // if (!firstName || !lastName || !email || !message) {
+  //   return res.status(400).json({ success: false, error: "Datos incompletos" });
+  // }
 
   try {
     // ✅ Verificamos el token de reCAPTCHA con Google
