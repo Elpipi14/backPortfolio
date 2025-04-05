@@ -6,13 +6,15 @@ const { email_user, email_pass } = configObject;
 // Configurar el transporte de Nodemailer
 const transporter = nodemailer.createTransport({
   host: "c2670112.ferozo.com",
-  port: 993,
-  secure: true, // true para puerto 465
+  port: 995,
+  secure: true, // true para puerto 995
   auth: {
     user: email_user,
     pass: email_pass,
   },
 });
+
+
 
 export const sendConfirmationEmail = async ({ email, firstName }) => {
   try {
