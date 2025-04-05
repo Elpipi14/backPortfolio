@@ -16,7 +16,16 @@ const app = express();
 // Middleware
 const allowedOrigins = [page, page2, page3].filter(Boolean); // solo strings válidas
 const corsOptions = {
-  origin: allowedOrigins,
+  origin: function (origin, callback) {
+    console.log("🔍 Origin recibido:", origin);
+
+    // Permitir llamadas desde localhost sin origin
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("❌ Origen no permitido por CORS: " + origin));
+    }
+  },
   credentials: false,
 };
 app.use(cors(corsOptions));
