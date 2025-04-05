@@ -4,7 +4,7 @@ import configObject from '../config/env.js'
 import { sendConfirmationEmail } from "../utils/nodemailer.js";
 
 const routerContact = Router();
-const { RECAPTCHA_SECRET_KEY } = configObject;
+// const { RECAPTCHA_SECRET_KEY } = configObject;
 
 
 routerContact.post("/api/contact", async (req, res) => {
