@@ -5,15 +5,15 @@ const { email_user, email_pass } = configObject;
 
 // Configurar el transporte de Nodemailer
 const transporter = nodemailer.createTransport({
-  service: "smtp.donweb.com",
-  port: 485,
-  secure:false,
+  host: "c2670112.ferozo.com", 
+  port: 465,
+  secure: true, // true para puerto 465
   auth: {
-    user: email_user,
-    pass: email_pass,
-    tls: {
-      rejectUnauthorized: false, // en caso de problemas con certificados SSL autofirmados
-    },
+    user: email_user, 
+    pass: email_pass, 
+  },
+  tls: {
+    rejectUnauthorized: false, // evita errores por certificados autofirmados
   },
 });
 
