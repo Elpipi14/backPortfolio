@@ -25,8 +25,6 @@ console.log("🧪 Cors permitido para:", page, page2, page3);
 
 // Middleware sirve para procesar las peticiones antes de llegar a las rutas
 app.use(express.json());
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use("/", routerContact);
 app.get("/", (req, res) => {
