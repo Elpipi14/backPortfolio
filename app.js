@@ -19,9 +19,11 @@ app.use(express.json());
 
 // Middleware
 const corsOptions = {
-  origin: [`${page}`, `${page2}`, 'http://localhost:8080'], // Permite HTTP y HTTPS
+ origin: [`${page}`, `${page2}`], // Permite HTTP y HTTPS
   credentials: true, // Si necesitas enviar cookies o autenticación
 };
+
+console.log("🧪 Cors permitido para:", page, page2);
 app.use(cors(corsOptions));
 
 
