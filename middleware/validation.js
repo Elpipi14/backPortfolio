@@ -6,3 +6,5 @@ const validateContact = [
   check("email").isEmail().withMessage("Email inválido"),
   check("message").isLength({ min: 10 }).withMessage("Mensaje muy corto"),
 ];
+
+export default validateContact
