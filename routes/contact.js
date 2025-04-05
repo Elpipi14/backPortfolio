@@ -2,7 +2,7 @@ import { Router } from "express";
 import axios from "axios";
 import configObject from "../config/env.js";
 import { sendConfirmationEmail } from "../utils/nodemailer.js";
-import { validateContact } from "../middleware/validation.js"
+import validateContact from "../middleware/validation.js"
 
 const routerContact = Router();
 // const { RECAPTCHA_SECRET_KEY } = configObject;
