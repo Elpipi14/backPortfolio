@@ -11,31 +11,24 @@ const { page, page2, page3, port } = configObject;
 //Ruta contacto para manejar el envío de correos electrónicos
 import routerContact from "./routes/contact.js";
 
-
 const app = express();
-
-// Middleware sirve para procesar las peticiones antes de llegar a las rutas
-app.use(express.json());
 
 // Middleware
 const allowedOrigins = [page, page2, page3].filter(Boolean); // solo strings válidas
-
 const corsOptions = {
-  origin: (origin, callback) => {
-    if (!origin || allowedOrigins.includes(origin)) {
-      return callback(null, true);
-    }
-    callback(new Error("No permitido por CORS"));
-  },
+  origin: allowedOrigins,
+  credentials: true,
 };
-
+app.use(cors(corsOptions));
 console.log("🧪 Cors permitido para:", page, page2, page3);
 
-app.use(cors(corsOptions));
 
+// Middleware sirve para procesar las peticiones antes de llegar a las rutas
+app.use(express.json());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use("/", routerContact);
-
 app.get("/", (req, res) => {
   res.send("Servidor API funcionando correctamente ✅");
 });
