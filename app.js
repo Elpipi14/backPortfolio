@@ -17,7 +17,7 @@ const app = express();
 const allowedOrigins = [page, page2, page3].filter(Boolean); // solo strings válidas
 const corsOptions = {
   origin: allowedOrigins,
-  credentials: true,
+  credentials: false,
 };
 app.use(cors(corsOptions));
 console.log("🧪 Cors permitido para:", page, page2, page3);
