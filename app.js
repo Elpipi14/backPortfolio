@@ -16,27 +16,19 @@ const app = express();
 // Middleware
 const allowedOrigins = [page, page2, page3].filter(Boolean); // solo strings válidas
 const corsOptions = {
-  origin: function (origin, callback) {
-    console.log("🔍 Origin recibido:", origin);
-
-    // Permitir llamadas desde localhost sin origin
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error("❌ Origen no permitido por CORS: " + origin));
-    }
-  },
-  credentials: false,
+  origin: allowedOrigins,
+  credentials: true,
 };
 app.use(cors(corsOptions));
 app.options("*", cors(corsOptions));
-console.log("🧪 Cors permitido para:", page, page2, page3);
-
 
 // Middleware sirve para procesar las peticiones antes de llegar a las rutas
 app.use(express.json());
 
+console.log("🧪 Cors permitido para:", page, page2, page3);
+
 app.use("/", routerContact);
+
 app.get("/", (req, res) => {
   res.send("Servidor API funcionando correctamente ✅");
 });
