@@ -8,7 +8,6 @@ const configObject = {
   page: process.env.PAGE,
   page2: process.env.PAGE2,
   page3: process.env.PAGE3,
-  page4: process.env.PAGE4,
   port: process.env.PORT || 8080,
 };
 
