@@ -14,12 +14,25 @@ import routerContact from "./routes/contact.js";
 const app = express();
 
 // Middleware
-const allowedOrigins = [page, page2, page3, page4, 'https://piuzzidev.com'].filter(Boolean); // solo strings válidas
+const allowedOrigins = [page, page2, page3, page4].filter(Boolean); // solo strings válidas
+
 const corsOptions = {
-  origin: allowedOrigins,
-  credentials: true,
+  origin: function (origin, callback) {
+    console.log("🔍 Origin recibido:", origin);
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      console.log("❌ Origen bloqueado por CORS:", origin);
+      callback(new Error("No permitido por CORS"));
+    }
+  },
+  credentials: false,
 };
+
+// Habilitar CORS
 app.use(cors(corsOptions));
+// ⚠️ IMPORTANTE: responder preflight OPTIONS
+app.options("*", cors(corsOptions));
 
 // Middleware sirve para procesar las peticiones antes de llegar a las rutas
 app.use(express.json());
