@@ -29,6 +29,7 @@ const corsOptions = {
   credentials: false,
 };
 app.use(cors(corsOptions));
+app.options("*", cors(corsOptions));
 console.log("🧪 Cors permitido para:", page, page2, page3);
 
 
