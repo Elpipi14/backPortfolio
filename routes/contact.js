@@ -45,7 +45,7 @@ routerContact.post("/api/contact",contactLimiter, validateContact, sanitizeConta
     await sendConfirmationEmail({
       email,
       firstName,
-      last_name: lastName,
+      lastName,
       message,
     });
 

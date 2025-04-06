@@ -13,7 +13,7 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-export const sendConfirmationEmail = async ({ email, firstName, message, last_name }) => {
+export const sendConfirmationEmail = async ({ email, firstName, message, lastname }) => {
   try {
     const sentMailOptions = {
       from: `"Piuzzi Dev" <${email_user}>`,
@@ -41,7 +41,7 @@ export const sendConfirmationEmail = async ({ email, firstName, message, last_na
           <p style="color: #333; font-size: 1.1em;">Has recibido un nuevo formulario de contacto. Aquí están los datos:</p>
           <div style="background-color: #fff; padding: 15px; border-radius: 8px; border: 1px solid #ddd; margin: 20px 0;">
               <p><strong>Nombre:</strong> ${firstName}</p>
-              <p><strong>Apellido:</strong> ${last_name}</p>
+              <p><strong>Apellido:</strong> ${lastname}</p>
               <p><strong>Email:</strong> ${email}</p>
               <p><strong>Mensaje:</strong> ${message}</p>
           </div>
