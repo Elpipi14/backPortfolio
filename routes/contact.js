@@ -6,6 +6,10 @@ import { sendConfirmationEmail } from "../utils/nodemailer.js";
 const routerContact = Router();
 // const { RECAPTCHA_SECRET_KEY } = configObject;
 
+routerContact.get("/", (req, res) => {
+  res.send("Servidor API funcionando correctamente ✅");
+});
+
 routerContact.post("/api/contact", async (req, res) => {
   const { firstName, lastName, email, message } = req.body;
   // , token || !token
