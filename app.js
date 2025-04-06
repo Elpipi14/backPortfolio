@@ -14,7 +14,7 @@ import routerContact from "./routes/contact.js";
 const app = express();
 
 // Middleware
-const allowedOrigins = [page, page2, page3, page4].filter(Boolean); // solo strings válidas
+const allowedOrigins = [page, page2, page3, page4, 'https://piuzzidev.com'].filter(Boolean); // solo strings válidas
 const corsOptions = {
   origin: allowedOrigins,
   credentials: true,
