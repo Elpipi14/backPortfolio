@@ -13,6 +13,9 @@ import routerContact from "./routes/contact.js";
 
 const app = express();
 
+// ✅ Confía en el proxy para obtener la IP real del cliente
+app.set("trust proxy", 1);
+
 // Middleware
 const allowedOrigins = [page, page2, page3].filter(Boolean); // solo strings válidas
 const corsOptions = {
