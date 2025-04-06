@@ -20,7 +20,6 @@ const corsOptions = {
   credentials: true,
 };
 app.use(cors(corsOptions));
-app.options("*", cors(corsOptions));
 
 // Middleware sirve para procesar las peticiones antes de llegar a las rutas
 app.use(express.json());
