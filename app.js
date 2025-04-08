@@ -19,18 +19,9 @@ app.set("trust proxy", 1);
 // Middleware
 const allowedOrigins = [page, page2, page3].filter(Boolean); // solo strings válidas
 const corsOptions = {
-  origin: function (origin, callback) {
-    // Permite requests sin origin
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error("No autorizado por CORS"));
-    }
-  },
+  origin: allowedOrigins,
   credentials: true,
 };
-// Configura CORS para permitir el acceso a la API desde el frontend
-// y para manejar las preflight requests (OPTIONS)
 app.use(cors(corsOptions));           // aplica CORS a todas las rutas
 app.options("*", cors(corsOptions));  // maneja las preflight requests
 
@@ -39,7 +30,7 @@ app.use(express.json());
 
 console.log("🧪 Cors permitido para:", page, page2, page3);
 
-app.use("/api/contact", routerContact);
+app.use("/", routerContact);
 
 // ==============================
 // 🔐 Servidor HTTP
