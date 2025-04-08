@@ -22,8 +22,8 @@ const corsOptions = {
   origin: allowedOrigins,
   credentials: true,
 };
-app.use(cors(corsOptions));           // aplica CORS a todas las rutas
-app.options("*", cors(corsOptions));  // maneja las preflight requests
+
+app.use(cors(corsOptions));
 
 // Middleware sirve para procesar las peticiones antes de llegar a las rutas
 app.use(express.json());
