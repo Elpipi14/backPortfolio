@@ -39,7 +39,7 @@ app.use(express.json());
 
 console.log("🧪 Cors permitido para:", page, page2, page3);
 
-app.use("/", routerContact);
+app.use("/api/contact", routerContact);
 
 // ==============================
 // 🔐 Servidor HTTP

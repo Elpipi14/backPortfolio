@@ -14,7 +14,7 @@ routerContact.get("/", (req, res) => {
   res.send("Servidor API funcionando correctamente ✅");
 });
 
-routerContact.post("/api/contact",contactLimiter, validateContact, sanitizeContact, async (req, res) => {
+routerContact.post("/",contactLimiter, validateContact, sanitizeContact, async (req, res) => {
 
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
